@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="login-container">
+    <!-- Logo -->
+    <img src="assets/img/logo.png" alt="App Logo" class="login-logo" />
+
+    <!-- Formulario -->
+    <form (ngSubmit)="onLogin()">
+      <ion-item>
+        <ion-label position="floating">Correo Electrónico</ion-label>
+        <ion-input type="email" required></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Contraseña</ion-label>
+        <ion-input type="password" required></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" type="submit" color="primary">
+        Iniciar Sesión
+      </ion-button>
+    </form>
+
+    <!-- Enlace de Recuperar Contraseña -->
+    <ion-text color="medium">
+      <p class="forgot-password">
+        ¿Olvidaste tu contraseña? <a href="#">Haz clic aquí</a>
+      </p>
+    </ion-text>
+  </div>
+</ion-content>
