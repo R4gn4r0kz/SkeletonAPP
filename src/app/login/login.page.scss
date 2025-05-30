@@ -1,6 +1,6 @@
 /* Estilo general del contenido */
 ion-content {
-  --background: linear-gradient(135deg, #3b82f6, #93c5fd); /* Fondo degradado en tonos de azul */
+  --background: linear-gradient(135deg, #8194bb, #1c5da7); /* Fondo degradado en tonos de azul */
   height: 100vh; /* Asegura que ocupe toda la altura de la pantalla */
   display: flex;
   justify-content: center; /* Centrar horizontalmente */
@@ -58,9 +58,9 @@ ion-input {
 
 /* Botón de inicio de sesión */
 ion-button {
-  --background: #2563eb; /* Azul más oscuro */
-  --background-activated: #1d4ed8; /* Azul más intenso al presionar */
-  --box-shadow: 0px 4px 10px rgba(37, 99, 235, 0.5); /* Sombras del botón */
+  --background: #94a7cf; /* Azul más oscuro */
+  --background-activated: #d3d5dd; /* Azul más intenso al presionar */
+  --box-shadow: 0px 4px 10px rgb(255, 255, 255); /* Sombras del botón */
   font-size: 1.2rem;
   font-weight: bold;
   border-radius: 10px;
@@ -76,12 +76,20 @@ ion-button {
 }
 
 .forgot-password a {
-  color: #f59e0b; /* Amarillo cálido */
+  color: #f5420b; /* Amarillo cálido */
   font-weight: bold;
   text-decoration: none;
 }
 
 .forgot-password a:hover {
   text-decoration: underline;
-  color: #fbbf24; /* Amarillo más claro al pasar el cursor */
+  color: #fb4424; /* Amarillo más claro al pasar el cursor */
+}
+
+
+.error {
+  color: #ff3b30;
+  text-align: left;
+  margin-bottom: 10px;
+  font-size: 0.95em;
 }

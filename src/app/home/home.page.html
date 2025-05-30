@@ -1,20 +1,35 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content>
+  <div class="home-container">
+    <h1 [@titleAnim]>Bienvenido!</h1>
+    <p>Usuario: <strong>{{ usuario }}</strong></p>
+    <h2>Información Adicional</h2>
+    <form [formGroup]="form">
+      <ion-item [@inputAnim]="animateInputs ? 'move' : 'none'">
+        <ion-label position="floating">Nombre</ion-label>
+        <ion-input formControlName="nombre"></ion-input>
+      </ion-item>
+      <ion-item [@inputAnim]="animateInputs ? 'move' : 'none'">
+        <ion-label position="floating">Apellido</ion-label>
+        <ion-input formControlName="apellido"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Nivel Educación</ion-label>
+        <ion-select formControlName="nivel">
+          <ion-select-option value="basico">Básico</ion-select-option>
+          <ion-select-option value="medio">Medio</ion-select-option>
+          <ion-select-option value="superior">Superior</ion-select-option>
+        </ion-select>
+      </ion-item>
+      <mat-form-field appearance="fill" class="mat-datepicker">
+        <mat-label>Fecha Nacimiento</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fechaNacimiento">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <div class="btns">
+        <ion-button (click)="limpiar()">Limpiar</ion-button>
+        <ion-button (click)="mostrar()">Mostrar</ion-button>
+      </div>
+    </form>
   </div>
 </ion-content>

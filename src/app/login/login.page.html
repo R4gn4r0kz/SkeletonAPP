@@ -1,36 +1,42 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content class="ion-padding">
+<ion-content>
   <div class="login-container">
-    <!-- Logo -->
-    <img src="assets/img/logo.png" alt="App Logo" class="login-logo" />
-
-    <!-- Formulario -->
-    <form (ngSubmit)="onLogin()">
+    <h2>Login</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <ion-item>
-        <ion-label position="floating">Correo Electrónico</ion-label>
-        <ion-input type="email" required></ion-input>
+        <ion-label position="floating">Usuario</ion-label>
+        <ion-input
+          formControlName="usuario"
+          maxlength="8"
+          minlength="3"
+          type="text"
+          required
+        ></ion-input>
       </ion-item>
+      <div *ngIf="usuario && usuario.invalid && (usuario.dirty || usuario.touched)" class="error">
+        <small *ngIf="usuario.errors && usuario.errors['required']">Campo requerido.</small>
+        <small *ngIf="usuario.errors && usuario.errors['minlength']">Mínimo 3 caracteres.</small>
+        <small *ngIf="usuario.errors && usuario.errors['maxlength']">Máximo 8 caracteres.</small>
+        <small *ngIf="usuario.errors && usuario.errors['pattern']">Solo letras y números.</small>
+      </div>
 
       <ion-item>
         <ion-label position="floating">Contraseña</ion-label>
-        <ion-input type="password" required></ion-input>
+        <ion-input
+          formControlName="password"
+          maxlength="4"
+          minlength="4"
+          type="password"
+          inputmode="numeric"
+          required
+        ></ion-input>
       </ion-item>
+      <div *ngIf="password && password.invalid && (password.dirty || password.touched)" class="error">
+        <small *ngIf="password.errors && password.errors['required']">Campo requerido.</small>
+        <small *ngIf="password.errors && (password.errors['minlength'] || password.errors['maxlength'])">Debe tener 4 dígitos.</small>
+        <small *ngIf="password.errors && password.errors['pattern']">Solo números.</small>
+      </div>
 
-      <ion-button expand="block" type="submit" color="primary">
-        Iniciar Sesión
-      </ion-button>
+      <ion-button expand="block" type="submit" [disabled]="loginForm.invalid">Agregar</ion-button>
     </form>
-
-    <!-- Enlace de Recuperar Contraseña -->
-    <ion-text color="medium">
-      <p class="forgot-password">
-        ¿Olvidaste tu contraseña? <a href="#">Haz clic aquí</a>
-      </p>
-    </ion-text>
   </div>
 </ion-content>
